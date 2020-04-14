@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
@@ -18,8 +19,11 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class WebConfig extends WebSecurityConfigurerAdapter {
 
+
+
     @Autowired
     private DataSource dataSource;
+
 
     private final String findUserByEmail = "select email as principal, password as credentails, true from usuario where email=?";
 
@@ -41,11 +45,15 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
+        httpSecurity.httpBasic()
+                .and()
                 .authorizeRequests()
-                .antMatchers("/usuario/listar").hasRole("USER").anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll()
-                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .antMatchers("/usuario/listar")
+                .hasRole("USER")
+                .antMatchers("/api/product/*")
+                .hasRole("ADMIN")
+                .and()
+                .formLogin();
     }
     @Override
     public void configure(WebSecurity web) throws Exception{

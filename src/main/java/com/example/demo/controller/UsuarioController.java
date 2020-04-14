@@ -21,7 +21,6 @@ public class UsuarioController {
     @GetMapping("/listar")
     public ResponseEntity<List<Usuario>> listar(){
         return ResponseEntity.ok(usuarioRepository.findAll());
-
     }
 
     @PostMapping("/cadastrar")
