@@ -50,8 +50,6 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/usuario/listar")
                 .hasRole("USER")
-                .antMatchers("/api/product/*")
-                .hasRole("ADMIN")
                 .and()
                 .formLogin();
     }
