@@ -6,12 +6,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
-@Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode
 @Entity
 public class Usuario implements Serializable {
@@ -31,5 +27,9 @@ public class Usuario implements Serializable {
 
     @Embedded
     private Role role;
+
+    protected Usuario (){
+
+    }
 
 }
