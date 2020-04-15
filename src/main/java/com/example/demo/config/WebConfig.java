@@ -27,7 +27,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     private final String findUserByEmail = "select email as principal, password as credentails, true from usuario where email=?";
 
-    private final String authoritiesByEmailQuery = "select USUARIO_email as principal, role_name as role from USUARIO_ROLE where USUARIO_email=?";
+    private final String authoritiesByEmailQuery = "select USUARIO_email as principal, role_name as role from USUARIO where USUARIO_email=?";
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -51,7 +51,9 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/usuario/listar")
                 .hasRole("USER")
                 .and()
-                .formLogin();
+                .formLogin()
+                .and().csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
+                .and().headers().frameOptions().sameOrigin();//allow use of frame to same origin urls
     }
     @Override
     public void configure(WebSecurity web) throws Exception{
