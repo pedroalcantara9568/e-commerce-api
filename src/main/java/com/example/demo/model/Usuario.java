@@ -3,12 +3,13 @@ package com.example.demo.model;
 import lombok.*;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-
+import java.util.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@AllArgsConstructor
 @EqualsAndHashCode
+@Getter
+@Setter
 @Entity
 public class Usuario implements Serializable {
 
@@ -16,20 +17,17 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
     @Email
-    @Column(unique = true)
     private String email;
 
     @NotEmpty(message = "esse campo não pode ser nulo")
     private String password;
 
-    @Embedded
     private Role role;
 
     protected Usuario (){
-
     }
 
 }

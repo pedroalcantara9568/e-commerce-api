@@ -24,7 +24,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     private final String findUserByEmail = "select email as principal, password as credentails, true from usuario where email=?";
 
-    private final String authoritiesByEmailQuery = "select email as principal, role_name as role from USUARIO where email=?";
+    private final String authoritiesByEmailQuery = "select email as principal, nome as role from USUARIO where email=?";
 
     @Bean
     public PasswordEncoder passwordEncoder() {
