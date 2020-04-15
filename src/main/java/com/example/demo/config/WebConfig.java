@@ -19,15 +19,12 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class WebConfig extends WebSecurityConfigurerAdapter {
 
-
-
     @Autowired
     private DataSource dataSource;
 
-
     private final String findUserByEmail = "select email as principal, password as credentails, true from usuario where email=?";
 
-    private final String authoritiesByEmailQuery = "select USUARIO_email as principal, role_name as role from USUARIO where USUARIO_email=?";
+    private final String authoritiesByEmailQuery = "select email as principal, role_name as role from USUARIO where email=?";
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -49,7 +46,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/usuario/listar")
-                .hasRole("USER")
+                .hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .and().csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console

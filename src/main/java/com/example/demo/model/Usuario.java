@@ -29,11 +29,7 @@ public class Usuario implements Serializable {
     @NotEmpty(message = "esse campo não pode ser nulo")
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "USUARIO_ROLE", joinColumns={
-            @JoinColumn(name = "USUARIO_email", referencedColumnName = "email") }, inverseJoinColumns = {
-            @JoinColumn(name = "ROLE_NAME", referencedColumnName = "name") })
-    @Column(name = "ROLES")
-    private List<Role> roles;
+    @Embedded
+    private Role role;
 
 }

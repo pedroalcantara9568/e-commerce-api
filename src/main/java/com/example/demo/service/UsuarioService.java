@@ -7,8 +7,6 @@ import com.example.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class UsuarioService {
@@ -22,9 +20,7 @@ public class UsuarioService {
     public void criarUsuario(Usuario usuario) {
         usuario.setPassword(this.encoder.encode(usuario.getPassword()));
         Role userRole = new Role("USER");
-        List<Role> roles = new ArrayList<>();
-        roles.add(userRole);
-        usuario.setRoles(roles);
+        usuario.setRole(userRole);
         usuarioRepository.save(usuario);
     }
 
