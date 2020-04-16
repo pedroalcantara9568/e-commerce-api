@@ -26,7 +26,7 @@ public class Usuario implements Serializable {
     private String password;
 
     @ManyToMany
-    private List<Role> role;
+    private List<Role> roles;
 
     protected Usuario (){
     }
