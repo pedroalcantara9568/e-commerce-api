@@ -20,13 +20,14 @@ public class Usuario implements Serializable {
     private Long id;
 
     @Email
+    @Column(unique = true)
     private String email;
 
     @NotEmpty(message = "esse campo não pode ser nulo")
     private String password;
 
     @ManyToMany
-    private List<Role> roles;
+    private Set<Role> roles;
 
     protected Usuario (){
     }

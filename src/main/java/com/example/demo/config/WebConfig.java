@@ -54,7 +54,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/usuarios/cadastrar","dale");
+        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/produtos/cadastrar","/categorias/cadastrar","/categorias/listar");
     }
 
 }

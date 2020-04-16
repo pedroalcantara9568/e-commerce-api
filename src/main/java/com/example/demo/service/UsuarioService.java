@@ -7,8 +7,8 @@ import com.example.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class UsuarioService {
@@ -22,7 +22,7 @@ public class UsuarioService {
     public void criarUsuario(Usuario usuario) {
         usuario.setPassword(this.encoder.encode(usuario.getPassword()));
         Role userRole = new Role("USER",Long.valueOf(2));
-        List<Role> roles = new ArrayList<>();
+        Set<Role> roles = new HashSet<>();
         roles.add(userRole);
         usuario.setRoles(roles);
         usuarioRepository.save(usuario);
