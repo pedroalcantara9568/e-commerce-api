@@ -24,7 +24,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     private final String findUserByEmail = "select email as principal, password as credentails, true from usuario where email=?";
 
-    private final String authoritiesByEmailQuery = "select email as principal,nome as role from usuario inner join usuario_roles on usuario.id = usuario_roles.usuario_id inner join role on usuario_roles.role_id = role.id where usuario.email = ?";
+    private final String authoritiesByEmailQuery = "select email as principal,nome as role from usuario inner join usuario_roles on usuario.id = usuario_roles.usuario_id inner join role on usuario_roles.roles_id = role.id where usuario.email = ?";
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -47,6 +47,8 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/usuarios/listar")
                 .hasRole("ADMIN")
+                .antMatchers("/carrinho/adicionarProduto")
+                .hasRole("USER")
                 .and()
                 .formLogin()
                 .and().csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
@@ -54,7 +56,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/produtos/cadastrar","/categorias/cadastrar","/categorias/listar");
+        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/produtos/cadastrar","/categorias/cadastrar","/categorias/listar","/carrinhos/adicionarProduto");
     }
 
 }

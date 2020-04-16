@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
 
+import com.example.demo.model.Carrinho;
 import com.example.demo.model.Role;
 import com.example.demo.model.Usuario;
+import com.example.demo.repository.CarrinhoRepository;
 import com.example.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +19,9 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
+    private CarrinhoRepository carrinhoRepository;
+
+    @Autowired
     private PasswordEncoder encoder;
 
     public void criarUsuario(Usuario usuario) {
@@ -25,6 +30,9 @@ public class UsuarioService {
         Set<Role> roles = new HashSet<>();
         roles.add(userRole);
         usuario.setRoles(roles);
+        Carrinho carrinho = new Carrinho();
+        carrinhoRepository.save(carrinho);
+        usuario.setCarrinho(carrinho);
         usuarioRepository.save(usuario);
     }
 

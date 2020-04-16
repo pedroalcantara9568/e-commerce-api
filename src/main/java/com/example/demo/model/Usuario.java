@@ -29,6 +29,9 @@ public class Usuario implements Serializable {
     @ManyToMany
     private Set<Role> roles;
 
+    @OneToOne
+    private Carrinho carrinho;
+
     protected Usuario (){
     }
 
