@@ -25,7 +25,8 @@ public class Usuario implements Serializable {
     @NotEmpty(message = "esse campo não pode ser nulo")
     private String password;
 
-    private Role role;
+    @ManyToMany
+    private List<Role> role;
 
     protected Usuario (){
     }

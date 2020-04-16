@@ -21,8 +21,10 @@ public class UsuarioService {
 
     public void criarUsuario(Usuario usuario) {
         usuario.setPassword(this.encoder.encode(usuario.getPassword()));
-        Role userRole = new Role("USER");
-        usuario.setRole(userRole);
+        Role userRole = new Role("USER",Long.valueOf(2));
+        List<Role> roles = new ArrayList<>();
+        roles.add(userRole);
+        usuario.setRoles(roles);
         usuarioRepository.save(usuario);
     }
 

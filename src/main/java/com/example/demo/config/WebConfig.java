@@ -24,7 +24,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     private final String findUserByEmail = "select email as principal, password as credentails, true from usuario where email=?";
 
-    private final String authoritiesByEmailQuery = "select email as principal, nome as role from USUARIO where email=?";
+    private final String authoritiesByEmailQuery = "select email as principal,nome as role from usuario inner join usuario_roles on usuario.id = usuario_roles.usuario_id inner join role on usuario_roles.roles_id = role.id where usuario.email = ?";
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -45,7 +45,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/usuario/listar")
+                .antMatchers("/usuarios/listar")
                 .hasRole("ADMIN")
                 .and()
                 .formLogin()
@@ -54,7 +54,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/usuario/cadastrar","dale");
+        web.ignoring().antMatchers("/usuarios/cadastrar","dale");
     }
 
 }
