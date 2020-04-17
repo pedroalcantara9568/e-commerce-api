@@ -21,7 +21,7 @@ public class Carrinho implements Serializable {
     private Double precoCarrinho;
 
     @Getter
-    @OneToMany
+    @ManyToMany
     private List<Produto> produtos;
 
     public void adicionaProdutoAoCarrinho(Produto produto){

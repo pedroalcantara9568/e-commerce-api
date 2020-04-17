@@ -47,16 +47,15 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/usuarios/listar")
                 .hasRole("ADMIN")
-                .antMatchers("/carrinho/adicionarProduto")
-                .hasRole("USER")
                 .and()
                 .formLogin()
                 .and().csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
                 .and().headers().frameOptions().sameOrigin();//allow use of frame to same origin urls
     }
+
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/produtos/cadastrar","/categorias/cadastrar","/categorias/listar","/carrinhos/adicionarProduto");
+        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/produtos/cadastrar","/categorias/cadastrar","/categorias/listar","/carrinho/cadastrarProduto");
     }
 
 }
