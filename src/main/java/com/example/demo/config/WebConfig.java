@@ -37,15 +37,14 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery(findUserByEmail)
                 .authoritiesByUsernameQuery(authoritiesByEmailQuery)
                 .passwordEncoder(passwordEncoder()).rolePrefix("ROLE_");
-
     }
 
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.httpBasic()
+        httpSecurity.csrf().ignoringAntMatchers("/produtos/cadastrar","/categorias/cadastrar","/carrinho/adicionarProduto").and().httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/usuarios/listar")
+                .antMatchers("/produtos/cadastrar","/categoria/cadastrar")
                 .hasRole("ADMIN")
                 .and()
                 .formLogin()
@@ -55,7 +54,6 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/produtos/cadastrar","/categorias/cadastrar","/categorias/listar","/carrinho/cadastrarProduto");
+        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/categorias/cadastrar","/categorias/listar");
     }
-
 }

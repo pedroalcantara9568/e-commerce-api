@@ -30,7 +30,7 @@ public class UsuarioService {
         Set<Role> roles = new HashSet<>();
         roles.add(userRole);
         usuario.setRoles(roles);
-        Carrinho carrinho = new Carrinho();
+        Carrinho carrinho = new Carrinho(0.0);
         carrinhoRepository.save(carrinho);
         usuario.setCarrinho(carrinho);
         usuarioRepository.save(usuario);

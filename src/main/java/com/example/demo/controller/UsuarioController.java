@@ -7,8 +7,6 @@ import com.example.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -27,7 +25,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Usuario> realizaCadastro(@RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> criaUsuario(@RequestBody Usuario usuario) {
         if(!usuarioService.usuarioPresente(usuario.getEmail())){
             usuarioService.criarUsuario(usuario);
             return ResponseEntity.ok(usuario);
