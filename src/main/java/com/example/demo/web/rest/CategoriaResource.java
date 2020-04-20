@@ -1,6 +1,6 @@
-package com.example.demo.controller;
+package com.example.demo.web.rest;
 
-import com.example.demo.model.Categoria;
+import com.example.demo.dominio.Categoria;
 import com.example.demo.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/categorias")
-public class CategoriaController  {
+public class CategoriaResource {
 
     @Autowired
     private CategoriaRepository categoriaRepository;

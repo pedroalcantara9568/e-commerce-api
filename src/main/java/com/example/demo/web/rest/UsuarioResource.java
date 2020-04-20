@@ -1,6 +1,6 @@
-package com.example.demo.controller;
+package com.example.demo.web.rest;
 
-import com.example.demo.model.Usuario;
+import com.example.demo.dominio.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
-public class UsuarioController {
+public class UsuarioResource {
 
     @Autowired
     private UsuarioService usuarioService;

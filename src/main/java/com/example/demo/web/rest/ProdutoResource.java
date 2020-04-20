@@ -1,6 +1,6 @@
-package com.example.demo.controller;
+package com.example.demo.web.rest;
 
-import com.example.demo.model.Produto;
+import com.example.demo.dominio.Produto;
 import java.util.*;
 
 import com.example.demo.repository.ProdutoRepository;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/produtos")
-public class ProdutoController {
+public class ProdutoResource {
 
     @Autowired
     private ProdutoRepository produtoRepository;

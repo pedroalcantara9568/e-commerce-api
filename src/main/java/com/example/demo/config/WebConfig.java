@@ -10,8 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 
 import javax.sql.DataSource;
 
@@ -44,7 +43,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.csrf().ignoringAntMatchers("/produtos/cadastrar","/categorias/cadastrar","/carrinho/adicionarProduto").and().httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/produtos/cadastrar","/categoria/cadastrar")
+                .antMatchers("/produtos/cadastrar","/categorias/cadastrar")
                 .hasRole("ADMIN")
                 .and()
                 .formLogin()
@@ -54,6 +53,6 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/categorias/cadastrar","/categorias/listar");
+        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/categorias/listar");
     }
 }

@@ -1,15 +1,9 @@
 package com.example.demo;
 
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import org.junit.Test;
-import org.junit.jupiter.api.DynamicTest;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@DataJpaTest
 class AudoratesteApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
 
 }

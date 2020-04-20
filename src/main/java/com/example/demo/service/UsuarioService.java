@@ -1,10 +1,9 @@
 package com.example.demo.service;
 
 
-import com.example.demo.model.Carrinho;
-import com.example.demo.model.Role;
-import com.example.demo.model.Usuario;
-import com.example.demo.repository.CarrinhoRepository;
+import com.example.demo.dominio.Carrinho;
+import com.example.demo.dominio.Role;
+import com.example.demo.dominio.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,7 +18,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
-    private CarrinhoRepository carrinhoRepository;
+    private CarrinhoService carrinhoService;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -31,23 +30,19 @@ public class UsuarioService {
         roles.add(userRole);
         usuario.setRoles(roles);
         Carrinho carrinho = new Carrinho(0.0);
-        carrinhoRepository.save(carrinho);
+        carrinhoService.salvaCarrinho(carrinho);
         usuario.setCarrinho(carrinho);
         usuarioRepository.save(usuario);
     }
 
     public boolean usuarioPresente (String email) {
-        Usuario u = usuarioRepository.findOneByEmail(email);
+        Usuario u = usuarioRepository.buscaPorEmail(email);
         if(u!=null)
             return true;
         return false;
     }
 
-    public void save(Usuario usuario) {
-        usuarioRepository.save(usuario);
-    }
-
     public Usuario buscaUsuarioPorEmail(String name) {
-        return usuarioRepository.findOneByEmail(name);
+        return usuarioRepository.buscaPorEmail(name);
     }
 }

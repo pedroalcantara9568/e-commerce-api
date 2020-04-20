@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.dominio;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,15 +23,8 @@ public class Carrinho implements Serializable {
     @Getter
     private Double precoCarrinho;
 
-    @Getter
-    @Setter
     @ManyToMany
     private List<Produto> produtos;
-
-    public void adicionaProdutoAoCarrinho(Produto produto){
-        this.precoCarrinho += produto.getValor();
-        this.produtos.add(produto);
-    }
 
     public Carrinho() {
     }
@@ -39,4 +32,5 @@ public class Carrinho implements Serializable {
     public Carrinho(Double precoCarrinho){
         this.precoCarrinho = precoCarrinho;
     }
+
 }

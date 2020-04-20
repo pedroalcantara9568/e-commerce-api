@@ -1,5 +1,6 @@
-package com.example.demo.model;
+package com.example.demo.dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,7 +9,6 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Role implements Serializable {
 
@@ -17,6 +17,10 @@ public class Role implements Serializable {
     private Long id;
 
     private String nome;
+
+    protected Role(){
+
+    }
 
     public Role(String nome, Long id) {
         this.nome = nome;
