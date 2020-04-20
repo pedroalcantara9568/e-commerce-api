@@ -51,7 +51,7 @@ Um cliente poderá cadastrar-se no sistema com seu e-mail e senha enviando uma r
         "password": "user"
     }
    
-o cliente poderá cadastrar um produto no seu carrinho usando uma requisição do tipo POST para a url: http://localhost:9000/usuarios/cadastrar
+o cliente poderá cadastrar um produto no seu carrinho usando uma requisição do tipo POST para a url: http://localhost:9000/carrinho/adicionarProduto
 
 
     {
