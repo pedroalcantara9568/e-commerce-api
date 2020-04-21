@@ -9,8 +9,6 @@ import java.io.Serializable;
 import java.util.*;
 
 @EqualsAndHashCode
-@Getter
-@Setter
 @Entity
 public class Carrinho implements Serializable {
 
@@ -26,7 +24,12 @@ public class Carrinho implements Serializable {
     @ManyToMany
     private List<Produto> produtos;
 
-    public Carrinho() {
+    protected Carrinho() {
+    }
+
+    public void adicionaProdutoAoCarrinho(Produto produto){
+        this.precoCarrinho += produto.getValor();
+        this.produtos.add(produto);
     }
 
     public Carrinho(Double precoCarrinho){
