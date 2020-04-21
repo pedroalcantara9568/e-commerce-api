@@ -26,7 +26,7 @@ public class CarrinhoResource {
     @PostMapping("/adicionarProduto")
     public ResponseEntity<Carrinho> cadastraProdutoNoCarrinho(@RequestBody Produto produto, Principal principal) {
         Usuario donoDoCarrinho = usuarioService.buscaUsuarioPorEmail(principal.getName());
-        donoDoCarrinho.getCarrinho().adicionaProdutoAoCarrinho(produto);
+        carrinhoService.adicionaProdutoAoCarrinho(produto, donoDoCarrinho.getCarrinho());
         return  ResponseEntity.ok(donoDoCarrinho.getCarrinho());
     }
 }
