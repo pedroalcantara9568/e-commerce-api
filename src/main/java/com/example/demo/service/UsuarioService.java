@@ -30,7 +30,7 @@ public class UsuarioService {
         roles.add(userRole);
         usuario.setRoles(roles);
         Carrinho carrinho = new Carrinho(0.0);
-        carrinhoService.salvaCarrinho(carrinho);
+        carrinhoService.salvarCarrinho(carrinho);
         usuario.setCarrinho(carrinho);
         usuarioRepository.save(usuario);
     }

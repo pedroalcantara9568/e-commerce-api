@@ -2,12 +2,10 @@ package com.example.demo.web.rest;
 
 import com.example.demo.dominio.Produto;
 import java.util.*;
-
 import com.example.demo.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @RequestMapping("/produtos")

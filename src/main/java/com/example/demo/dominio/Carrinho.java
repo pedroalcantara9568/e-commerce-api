@@ -3,7 +3,6 @@ package com.example.demo.dominio;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -24,9 +23,14 @@ public class Carrinho implements Serializable {
     private Double precoCarrinho;
 
     @ManyToMany
-    private List<Produto> produtos;
+    private List<Produto> produtos = new ArrayList<Produto>();
 
     protected Carrinho() {
+    }
+
+    public void adicionaProdutoAoCarrinho(Produto produto){
+        this.precoCarrinho +=produto.getValor();
+        this.produtos.add(produto);
     }
 
     public Carrinho(Double precoCarrinho){

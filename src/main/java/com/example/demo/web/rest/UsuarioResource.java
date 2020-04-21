@@ -3,7 +3,6 @@ package com.example.demo.web.rest;
 import com.example.demo.dominio.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
