@@ -1,4 +1,4 @@
-package com.example.demo.aplicacao.comercio;
+package com.example.demo.aplicacao.autenticacao;
 
 import com.example.demo.dominio.autenticacao.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;

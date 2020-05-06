@@ -1,7 +1,6 @@
 package com.example.demo.aplicacao.autenticacao;
 
 import com.example.demo.aplicacao.comercio.CarrinhoService;
-import com.example.demo.aplicacao.comercio.UsuarioRepository;
 import com.example.demo.dominio.autenticacao.Papel;
 import com.example.demo.dominio.autenticacao.Usuario;
 import com.example.demo.dominio.comercio.Carrinho;

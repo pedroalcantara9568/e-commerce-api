@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.dominio.comercio;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

@@ -1,6 +1,5 @@
-package com.example.demo;
+package com.example.demo.dominio.comercio;
 
-import com.example.demo.dominio.comercio.Carrinho;
 import com.example.demo.dominio.inventario.Produto;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;

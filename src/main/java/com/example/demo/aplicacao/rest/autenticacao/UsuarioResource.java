@@ -1,6 +1,6 @@
 package com.example.demo.aplicacao.rest.autenticacao;
 
-import com.example.demo.aplicacao.comercio.UsuarioRepository;
+import com.example.demo.aplicacao.autenticacao.UsuarioRepository;
 import com.example.demo.aplicacao.autenticacao.UsuarioService;
 import com.example.demo.dominio.autenticacao.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;

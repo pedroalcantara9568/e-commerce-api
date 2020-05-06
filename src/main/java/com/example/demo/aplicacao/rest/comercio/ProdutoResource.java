@@ -2,7 +2,7 @@ package com.example.demo.aplicacao.rest.comercio;
 
 import com.example.demo.dominio.inventario.Produto;
 import java.util.*;
-import com.example.demo.aplicacao.comercio.ProdutoRepository;
+import com.example.demo.aplicacao.inventario.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
