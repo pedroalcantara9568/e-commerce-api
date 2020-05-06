@@ -1,7 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.aplicacao.comercio;
 
-import com.example.demo.dominio.Carrinho;
-import com.example.demo.repository.CarrinhoRepository;
+import com.example.demo.dominio.comercio.Carrinho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

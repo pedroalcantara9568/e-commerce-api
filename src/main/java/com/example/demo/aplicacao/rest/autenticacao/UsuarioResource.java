@@ -1,11 +1,12 @@
-package com.example.demo.web.rest;
+package com.example.demo.aplicacao.rest.autenticacao;
 
-import com.example.demo.dominio.Usuario;
-import com.example.demo.repository.UsuarioRepository;
-import com.example.demo.service.UsuarioService;
+import com.example.demo.aplicacao.comercio.UsuarioRepository;
+import com.example.demo.aplicacao.autenticacao.UsuarioService;
+import com.example.demo.dominio.autenticacao.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController

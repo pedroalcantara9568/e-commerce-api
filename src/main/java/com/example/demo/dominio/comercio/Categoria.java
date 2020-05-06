@@ -1,6 +1,5 @@
-package com.example.demo.dominio;
+package com.example.demo.dominio.comercio;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,11 +1,9 @@
-package com.example.demo.repository;
+package com.example.demo.aplicacao.comercio;
 
-import com.example.demo.dominio.Usuario;
+import com.example.demo.dominio.autenticacao.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
-import java.util.Optional;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 

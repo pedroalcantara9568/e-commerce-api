@@ -1,13 +1,14 @@
-package com.example.demo.service;
+package com.example.demo.aplicacao.autenticacao;
 
-
-import com.example.demo.dominio.Carrinho;
-import com.example.demo.dominio.Role;
-import com.example.demo.dominio.Usuario;
-import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.aplicacao.comercio.CarrinhoService;
+import com.example.demo.aplicacao.comercio.UsuarioRepository;
+import com.example.demo.dominio.autenticacao.Papel;
+import com.example.demo.dominio.autenticacao.Usuario;
+import com.example.demo.dominio.comercio.Carrinho;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,10 +26,10 @@ public class UsuarioService {
 
     public void criarUsuario(Usuario usuario) {
         usuario.setPassword(this.encoder.encode(usuario.getPassword()));
-        Role userRole = new Role("USER",Long.valueOf(2));
-        Set<Role> roles = new HashSet<>();
-        roles.add(userRole);
-        usuario.setRoles(roles);
+        Papel userPapel = new Papel("USER",Long.valueOf(2));
+        Set<Papel> papels = new HashSet<>();
+        papels.add(userPapel);
+        usuario.setPapels(papels);
         Carrinho carrinho = new Carrinho(0.0);
         carrinhoService.salvarCarrinho(carrinho);
         usuario.setCarrinho(carrinho);

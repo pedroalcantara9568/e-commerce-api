@@ -1,6 +1,6 @@
-package com.example.demo.dominio;
+package com.example.demo.dominio.inventario;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.demo.dominio.comercio.Categoria;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,4 +27,11 @@ public class Produto implements Serializable {
 
     @ManyToMany
     private Set<Categoria> categorias;
+
+    protected Produto() {
+    }
+
+    public Produto (double valor) {
+        this.valor = valor;
+    }
 }

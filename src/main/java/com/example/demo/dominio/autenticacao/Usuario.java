@@ -1,12 +1,15 @@
-package com.example.demo.dominio;
+package com.example.demo.dominio.autenticacao;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import com.example.demo.dominio.comercio.Carrinho;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import java.util.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @EqualsAndHashCode
 @Getter
@@ -28,11 +31,9 @@ public class Usuario implements Serializable {
     private String password;
 
     @ManyToMany
-    private Set<Role> roles;
+    private Set<Papel> papels;
 
     @OneToOne
     private Carrinho carrinho;
-
-
 
 }

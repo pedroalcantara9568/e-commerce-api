@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.aplicacao.autenticacao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +23,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     private final String findUserByEmail = "select email as principal, password as credentails, true from usuario where email=?";
 
-    private final String authoritiesByEmailQuery = "select email as principal,nome as role from usuario inner join usuario_roles on usuario.id = usuario_roles.usuario_id inner join role on usuario_roles.roles_id = role.id where usuario.email = ?";
+    private final String authoritiesByEmailQuery = "select email as principal,nome as role from usuario inner join usuario_papels on usuario.id = usuario_papels.usuario_id inner join papel on usuario_papels.papels_id = papel.id where usuario.email = ?";
 
     @Bean
     public PasswordEncoder passwordEncoder() {

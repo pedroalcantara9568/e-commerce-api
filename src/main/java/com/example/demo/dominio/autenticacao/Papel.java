@@ -1,4 +1,4 @@
-package com.example.demo.dominio;
+package com.example.demo.dominio.autenticacao;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-public class Role implements Serializable {
+public class Papel implements Serializable {
 
     @Id
     @GeneratedValue
@@ -18,11 +18,11 @@ public class Role implements Serializable {
 
     private String nome;
 
-    protected Role(){
+    protected Papel(){
 
     }
 
-    public Role(String nome, Long id) {
+    public Papel(String nome, Long id) {
         this.nome = nome;
         this.id = id;
     }

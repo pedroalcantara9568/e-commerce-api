@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.example.demo.aplicacao.comercio;
 
-import com.example.demo.dominio.Categoria;
+import com.example.demo.dominio.comercio.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

@@ -1,20 +1,24 @@
-package com.example.demo.web.rest;
+package com.example.demo.aplicacao.rest.comercio;
 
 
-import com.example.demo.dominio.Carrinho;
-import com.example.demo.dominio.Produto;
-import com.example.demo.dominio.Usuario;
-import com.example.demo.repository.CarrinhoRepository;
-import com.example.demo.service.UsuarioService;
+import com.example.demo.aplicacao.comercio.CarrinhoRepository;
+import com.example.demo.aplicacao.autenticacao.UsuarioService;
+import com.example.demo.dominio.autenticacao.Usuario;
+import com.example.demo.dominio.comercio.Carrinho;
+import com.example.demo.dominio.inventario.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 
 @RestController
 @RequestMapping("/carrinho")
 public class CarrinhoResource {
+
     @Autowired
     private CarrinhoRepository carrinhoRepository;
 

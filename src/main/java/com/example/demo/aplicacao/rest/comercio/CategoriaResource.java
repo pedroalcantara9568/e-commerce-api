@@ -1,7 +1,7 @@
-package com.example.demo.web.rest;
+package com.example.demo.aplicacao.rest.comercio;
 
-import com.example.demo.dominio.Categoria;
-import com.example.demo.repository.CategoriaRepository;
+import com.example.demo.dominio.comercio.Categoria;
+import com.example.demo.aplicacao.comercio.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
