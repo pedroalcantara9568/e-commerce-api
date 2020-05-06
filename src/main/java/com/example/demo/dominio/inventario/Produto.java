@@ -3,15 +3,16 @@ package com.example.demo.dominio.inventario;
 import com.example.demo.dominio.comercio.Categoria;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.io.Serializable;
 import java.util.Set;
 
 @EqualsAndHashCode
 @Getter
-@Setter
 @Entity
 public class Produto implements Serializable {
 
@@ -34,4 +35,5 @@ public class Produto implements Serializable {
     public Produto (double valor) {
         this.valor = valor;
     }
+
 }

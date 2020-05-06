@@ -25,6 +25,7 @@ public class Carrinho implements Serializable {
     @Getter
     private Double precoCarrinho;
 
+    @Getter
     @ManyToMany
     private List<Produto> produtos = new ArrayList<Produto>();
 
