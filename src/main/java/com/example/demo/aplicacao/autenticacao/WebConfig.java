@@ -40,7 +40,7 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().ignoringAntMatchers("/produtos/cadastrar","/categorias/cadastrar","/carrinho/adicionarProduto").and().httpBasic()
+        httpSecurity.csrf().ignoringAntMatchers("/produtos/cadastrar","/categoria","/carrinho/adicionarProduto").and().httpBasic()
                 .and()
                 .authorizeRequests()
                 .antMatchers("/produtos/cadastrar","/categorias/cadastrar")
@@ -53,6 +53,6 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/usuarios/cadastrar","/produtos/listar","/categorias/listar");
+        web.ignoring().antMatchers("/usuario","/produtos/listar","/categorias/listar");
     }
 }

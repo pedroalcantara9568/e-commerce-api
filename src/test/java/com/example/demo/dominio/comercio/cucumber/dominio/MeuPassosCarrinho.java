@@ -1,4 +1,4 @@
-package com.example.demo.dominio.comercio.dominio;
+package com.example.demo.dominio.comercio.cucumber.dominio;
 
 import com.example.demo.dominio.comercio.Carrinho;
 import com.example.demo.dominio.inventario.Produto;

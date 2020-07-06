@@ -10,7 +10,11 @@ public class CarrinhoService {
     @Autowired
     private CarrinhoRepository carrinhoRepository;
 
-    public void salvarCarrinho(Carrinho carrinho){
-        carrinhoRepository.save(carrinho);
+    public Carrinho salvarCarrinho(Carrinho carrinho){
+       return carrinhoRepository.save(carrinho);
+    }
+
+    public Carrinho buscaCarrinhoPorEmail(String email) {
+        return carrinhoRepository.buscaCarrinhoPorEmail(email);
     }
 }

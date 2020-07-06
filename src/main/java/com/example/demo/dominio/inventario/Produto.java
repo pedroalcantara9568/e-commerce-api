@@ -36,4 +36,9 @@ public class Produto implements Serializable {
         this.valor = valor;
     }
 
+    public Produto(double valorDoProduto, String nomeDoProduto) {
+        this.nome = nomeDoProduto;
+        this.valor = valorDoProduto;
+
+    }
 }

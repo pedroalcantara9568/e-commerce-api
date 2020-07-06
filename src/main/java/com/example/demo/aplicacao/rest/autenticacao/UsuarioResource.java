@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/usuario")
 public class UsuarioResource {
 
     @Autowired
@@ -19,12 +19,12 @@ public class UsuarioResource {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @GetMapping("/listar")
+    @GetMapping
     public ResponseEntity<List<Usuario>> listar(){
         return ResponseEntity.ok(usuarioRepository.findAll());
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping
     public ResponseEntity<Usuario> criaUsuario(@RequestBody Usuario usuario) {
         if(!usuarioService.usuarioPresente(usuario.getEmail())){
             usuarioService.criarUsuario(usuario);

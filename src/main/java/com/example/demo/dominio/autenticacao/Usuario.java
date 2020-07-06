@@ -1,6 +1,5 @@
 package com.example.demo.dominio.autenticacao;
 
-import com.example.demo.dominio.comercio.Carrinho;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,8 +31,5 @@ public class Usuario implements Serializable {
 
     @ManyToMany
     private Set<Papel> papels;
-
-    @OneToOne
-    private Carrinho carrinho;
 
 }
