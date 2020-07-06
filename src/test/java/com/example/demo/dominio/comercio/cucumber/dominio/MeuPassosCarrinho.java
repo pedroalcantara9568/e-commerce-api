@@ -1,5 +1,6 @@
-package com.example.demo.dominio.comercio;
+package com.example.demo.dominio.comercio.dominio;
 
+import com.example.demo.dominio.comercio.Carrinho;
 import com.example.demo.dominio.inventario.Produto;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
@@ -26,10 +27,6 @@ public class MeuPassosCarrinho {
         this.carrinho.adicionaProdutoAoCarrinho(produto);
     }
 
-    @Dado("um carrinho")
-    public void umCarrinho() {
-        this.carrinho = new Carrinho(0.0);
-    }
 
     @Quando("os produtos forem adicionados ao carrinho")
     public void osProdutosForemAdicionadosAoCarrinho() {
@@ -50,5 +47,10 @@ public class MeuPassosCarrinho {
     @Então("o preço do carrinho será {double}")
     public void oPreçoDoCarrinhoSerá(double valorDoCenario) {
         this.carrinho.getPrecoCarrinho().equals(valorDoCenario);
+    }
+
+    @Então("o preço do carrinho será o mesmo do produto")
+    public void oPreçoDoCarrinhoSeráOMesmoDoProduto() {
+        this.carrinho.getPrecoCarrinho().equals(this.produto.getValor());
     }
 }
